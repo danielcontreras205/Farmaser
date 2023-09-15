@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0ef9019-a9f9-4466-b939-b3950e6a023c">
+	<property name="ireport.zoom" value="1.610510000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="110"/>
+	<parameter name="Fachi_Inicio" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FechaFinal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas.`id` AS ventas_id,
+     ventas.`Fecha` AS ventas_Fecha,
+     persona.`Nombre` AS persona_Nombre,
+     persona.`Primer_Apellido` AS persona_Primer_Apellido,
+     ventas.`Total_Venta` AS ventas_Total_Venta,
+     ventas.`Hora_Venta` AS ventas_Hora_Venta
+FROM
+     `persona` persona INNER JOIN `ventas` ventas ON persona.`cc` = ventas.`cc_persona`
+WHERE
+ventas.`Fecha` BETWEEN '$P!{Fachi_Inicio}' AND '$P!{FechaFinal}']]>
+	</queryString>
+	<field name="ventas_id" class="java.lang.String"/>
+	<field name="ventas_Fecha" class="java.lang.String"/>
+	<field name="persona_Nombre" class="java.lang.String"/>
+	<field name="persona_Primer_Apellido" class="java.lang.String"/>
+	<field name="ventas_Total_Venta" class="java.lang.Integer"/>
+	<field name="ventas_Hora_Venta" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="109" y="30" width="333" height="32" uuid="8acfa336-9e28-456a-896f-a2b282d562f4"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Farmaser]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="30" width="100" height="20" uuid="d3d00400-7e6a-446f-a723-d0ac4a0fe96e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="86" height="79" uuid="a659a586-e231-4a6c-8573-8ed8c60f38fc"/>
+				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="15" width="382" height="20" uuid="7a633bc5-72b5-42bb-a912-02af5a2eb301"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Se presenta el reporte de rango de fechas, las ventas que son:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="51" height="20" uuid="348ddd5d-6ec3-4eff-b131-4e79ae73ff75"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="62" y="2" width="70" height="20" uuid="5a5229b2-02dc-42fd-a350-5927ac5c19f4"/>
+				<text><![CDATA[Fechas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="2" width="66" height="20" uuid="92f14769-9e20-4ca6-918b-18355c756c30"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="429" y="2" width="100" height="20" uuid="b5f5ab4e-99ba-44bb-863d-af03a18a8c71"/>
+				<text><![CDATA[ventas_Total_Venta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="309" y="2" width="100" height="20" uuid="5676b0e7-8938-4f41-b92b-4e1c8878b4ba"/>
+				<text><![CDATA[apellidos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="143" y="2" width="66" height="20" uuid="6085164e-327e-47c8-a6fd-f7d3bc0b9972"/>
+				<text><![CDATA[Hora de venta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="51" height="20" uuid="dab99aec-0a15-4878-a72f-00c7b3eb1c06"/>
+				<textFieldExpression><![CDATA[$F{ventas_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="0" width="70" height="20" uuid="f4b37a8c-9f93-4258-9442-90064a9c26d0"/>
+				<textFieldExpression><![CDATA[$F{ventas_Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="0" width="66" height="20" uuid="bf9a4369-30bb-4105-bbf8-cac984df63f9"/>
+				<textFieldExpression><![CDATA[$F{persona_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="100" height="20" uuid="fb43753b-5277-4c31-82f8-a405107e7ba0"/>
+				<textFieldExpression><![CDATA[$F{ventas_Total_Venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="100" height="20" uuid="ce81eb04-406d-44bd-8dc0-61699489d820"/>
+				<textFieldExpression><![CDATA[$F{persona_Primer_Apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="143" y="0" width="66" height="20" uuid="20a7f1b5-4867-4804-875d-c9deb59dd1c9"/>
+				<textFieldExpression><![CDATA[$F{ventas_Hora_Venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="209" y="0" width="100" height="20" uuid="5f2170c6-adcf-4db5-8871-a4455fd853fe"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

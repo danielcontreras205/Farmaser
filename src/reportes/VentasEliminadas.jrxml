@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ccaef705-4ef6-46c5-a58e-b41fac6d257f">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Codigo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     backupventas.`id_Ventas` AS backupventas_id_Ventas,
+     backupventas.`Fecha_Venta` AS backupventas_Fecha_Venta,
+     backupventas.`Hora_venta` AS backupventas_Hora_venta,
+     backupventas.`Nombre` AS backupventas_Nombre,
+     backupventas.`Apellidos` AS backupventas_Apellidos,
+     backupventas.`id_Medicamento` AS backupventas_id_Medicamento,
+     backupventas.`NombreGenerico` AS backupventas_NombreGenerico,
+     backupventas.`Precentacion` AS backupventas_Precentacion,
+     backupventas.`Cantidad` AS backupventas_Cantidad,
+     backupventas.`Total_Venta` AS backupventas_Total_Venta,
+     backupventas.`Cedula` AS backupventas_Cedula
+FROM
+     `backupventas` backupventas
+WHERE  backupventas.id_Ventas = $P!{Codigo}]]>
+	</queryString>
+	<field name="backupventas_id_Ventas" class="java.lang.String"/>
+	<field name="backupventas_Fecha_Venta" class="java.lang.String"/>
+	<field name="backupventas_Hora_venta" class="java.lang.String"/>
+	<field name="backupventas_Nombre" class="java.lang.String"/>
+	<field name="backupventas_Apellidos" class="java.lang.String"/>
+	<field name="backupventas_id_Medicamento" class="java.lang.String"/>
+	<field name="backupventas_NombreGenerico" class="java.lang.String"/>
+	<field name="backupventas_Precentacion" class="java.lang.String"/>
+	<field name="backupventas_Cantidad" class="java.lang.Integer"/>
+	<field name="backupventas_Total_Venta" class="java.lang.Integer"/>
+	<field name="backupventas_Cedula" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="109" y="0" width="333" height="32" uuid="048ca113-c52a-4212-baa2-730e38957619"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Farmaser]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="2fa0d4c9-9218-49f0-b793-01f493de22bc"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="86" height="79" uuid="86c602f0-78dc-48e2-8ec5-2e686a278740"/>
+				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="96" y="44" width="70" height="20" uuid="2a6a12d9-2297-45b3-87b9-5f17fe7192ec"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10"/>
+				</textElement>
+				<text><![CDATA[Factura N°:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="36" width="96" height="20" uuid="cff3d65e-e63c-434a-94a0-5149964da57b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha De Venta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="179" y="44" width="100" height="20" uuid="08839421-ccdf-42f5-81a9-c5fc878f777f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_id_Ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="36" width="100" height="20" uuid="1817418f-60b8-40ec-85c0-5be4dafd2688"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Fecha_Venta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="56" width="102" height="20" uuid="c4d1440f-142b-40e9-b9b3-66c88316aacf"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Hora De La Venta:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="56" width="100" height="20" uuid="e07a9f7d-0570-4b28-b7f8-7a425be2366c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Hora_venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="52" height="20" uuid="4d52ed40-3a34-45b7-aff2-587dc96bb8f1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="66" y="0" width="43" height="20" uuid="e36dc038-0791-4694-81c8-36db67ef5c44"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="109" y="0" width="57" height="20" uuid="20ee2bdc-2e07-4e5a-a4ac-b9472f6addd2"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="693bb241-6414-4153-9775-11952060006f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Total_Venta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="351" y="0" width="102" height="20" uuid="059ceaad-dc30-4d42-8615-3634a1411e94"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Valor Total:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="8a88b4c0-0245-4447-b700-57404c9d77a8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo Medicamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" uuid="f65cb5a4-d1f8-4a9b-856a-5b4efe595856"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" uuid="c8aad420-9a23-4e1c-870d-d3afb4054d72"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Precentacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" uuid="d04bb765-7757-40f6-b1e2-de4e39da073c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cantidad Vendida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2a284200-d82a-42a5-b105-74b20e441acc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_id_Medicamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="03f93d1f-8312-41fe-9249-307254a8fe97"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_NombreGenerico}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="6da4d158-ef14-4ed4-a446-a7c45d127eba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Precentacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="6c4bae86-c491-456f-b1d0-7b1eeb4f212c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{backupventas_Cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

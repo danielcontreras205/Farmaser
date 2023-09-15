@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9157d68b-62c3-4e2b-b8f1-0090b1af67d8">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     vistabackup.`id_Ventas` AS vistabackup_id_Ventas,
+     vistabackup.`Fecha_Venta` AS vistabackup_Fecha_Venta,
+     vistabackup.`Cedula` AS vistabackup_Cedula,
+     vistabackup.`Nombre` AS vistabackup_Nombre,
+     vistabackup.`Apellidos` AS vistabackup_Apellidos,
+     vistabackup.`Productos` AS vistabackup_Productos,
+     vistabackup.`Total_Venta` AS vistabackup_Total_Venta
+FROM
+     `vistabackup` vistabackup]]>
+	</queryString>
+	<field name="vistabackup_id_Ventas" class="java.lang.String"/>
+	<field name="vistabackup_Fecha_Venta" class="java.lang.String"/>
+	<field name="vistabackup_Cedula" class="java.lang.String"/>
+	<field name="vistabackup_Nombre" class="java.lang.String"/>
+	<field name="vistabackup_Apellidos" class="java.lang.String"/>
+	<field name="vistabackup_Productos" class="java.lang.Long"/>
+	<field name="vistabackup_Total_Venta" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="86" height="79" uuid="127f4cc2-ea9e-410c-88c5-c9a77363f3d3"/>
+				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="86" y="0" width="333" height="32" uuid="df172182-4b4f-4561-8d22-6163ecacc04e"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Reporte Farmaser]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="455" y="0" width="100" height="20" uuid="f4a05ca4-9865-4a10-bb1e-437d20a9a811"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="382" height="20" uuid="abfe2e42-5004-4ca4-9ce5-373b5061b5d5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Se presenta el reporte del historial de venta que a tenido la Drogeria Farmaser]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="20" uuid="f5a5aa93-6915-4372-a66e-6d6cc2660039"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="47" y="0" width="48" height="20" uuid="be9068a0-633c-42d1-9b17-7f3732458807"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="54" height="20" uuid="3a06a784-18e0-4e37-80bf-d4104dd0497d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Cedual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="157" y="0" width="42" height="20" uuid="cd5464d9-3aa1-4334-8630-ca3fa6815408"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="0" width="50" height="20" uuid="e13326b7-ad1d-47f2-8c2b-615f255b4e2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Apellido]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="61" height="20" uuid="31b7a71a-8bf3-4f70-8fbe-c3d6b17b51cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[N° productos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="0" width="100" height="20" uuid="f4b227cc-d342-48de-ab5b-6c6f359e31fc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Valor De La Venta]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="44" height="20" uuid="2bca640e-748d-4571-87e6-568bf7ec4043"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_id_Ventas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="47" y="0" width="48" height="20" uuid="ab608520-f883-4e69-bd99-98e52990e48b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Fecha_Venta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="54" height="20" uuid="7d385467-5a1f-4e4b-8524-c1c19ee12e35"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="157" y="0" width="42" height="20" uuid="0c9490a6-6c54-4d39-a22e-9adea689816a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="50" height="20" uuid="dd22389e-5e48-4ecb-8773-86a196f1cc31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="0" width="61" height="20" uuid="9cd19456-6871-4590-93ab-59288f142ef9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Productos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="313" y="0" width="100" height="20" uuid="0e2eedaa-848f-433e-94b0-794e65b6bcda"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{vistabackup_Total_Venta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

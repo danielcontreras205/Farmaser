@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="94b1179b-4d69-4d0b-be5b-8f17e9aaaeb3">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset 1" uuid="c514722e-1ba8-4ea0-af6c-7c837bd5f2f1"/>
+	<subDataset name="New Dataset 1" uuid="07260651-0bd4-4a49-8aa9-b5e6a7b5e5f1">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ventas.`id` AS ventas_id,
+     ventas.`Fecha` AS ventas_Fecha,
+     ventas.`Total_Venta` AS ventas_Total_Venta,
+     persona.`Nombre` AS persona_Nombre,
+     persona.`Primer_Apellido` AS persona_Primer_Apellido,
+     medicamentos.`id` AS medicamentos_id,
+     medicamentos.`NombreComercial` AS medicamentos_NombreComercial,
+     medicamentos.`precentacion` AS medicamentos_precentacion,
+     medicamentos.`Precio_medicamento` AS medicamentos_Precio_medicamento
+FROM
+     `ventas` ventas INNER JOIN `venta_medicamento` venta_medicamento ON ventas.`id` = venta_medicamento.`id_Ventas`
+     INNER JOIN `persona` persona ON ventas.`cc_persona` = persona.`cc`
+     INNER JOIN `medicamentos` medicamentos ON venta_medicamento.`id_medicamentos` = medicamentos.`id`]]>
+		</queryString>
+		<field name="ventas_id" class="java.lang.String"/>
+		<field name="ventas_Fecha" class="java.lang.String"/>
+		<field name="persona_Nombre" class="java.lang.String"/>
+		<field name="persona_Primer_Apellido" class="java.lang.String"/>
+		<field name="medicamentos_id" class="java.lang.String"/>
+		<field name="medicamentos_NombreComercial" class="java.lang.String"/>
+		<field name="medicamentos_precentacion" class="java.lang.String"/>
+		<field name="medicamentos_Precio_medicamento" class="java.lang.Integer"/>
+		<field name="ventas_Total_Venta" class="java.lang.Integer"/>
+		<group name="ventas_id">
+			<groupExpression><![CDATA[$F{ventas_id}]]></groupExpression>
+		</group>
+	</subDataset>
+	<parameter name="CodigoFactura" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     ventas.`id` AS ventas_id,
+     ventas.`Fecha` AS ventas_Fecha,
+     ventas.`Total_Venta` AS ventas_Total_Venta,
+     persona.`Nombre` AS persona_Nombre,
+     persona.`Primer_Apellido` AS persona_Primer_Apellido,
+     medicamentos.`id` AS medicamentos_id,
+     medicamentos.`NombreComercial` AS medicamentos_NombreComercial,
+     medicamentos.`precentacion` AS medicamentos_precentacion,
+     medicamentos.`Precio_medicamento` AS medicamentos_Precio_medicamento,
+     venta_medicamento.`Cantidad` AS venta_medicamento_Cantidad
+FROM
+     `ventas` ventas INNER JOIN `venta_medicamento` venta_medicamento ON ventas.`id` = venta_medicamento.`id_Ventas`
+     INNER JOIN `persona` persona ON ventas.`cc_persona` = persona.`cc`
+     INNER JOIN `medicamentos` medicamentos ON venta_medicamento.`id_medicamentos` = medicamentos.`id`
+WHERE
+     ventas.`id` = '$P!{CodigoFactura}']]>
+	</queryString>
+	<field name="ventas_id" class="java.lang.String"/>
+	<field name="ventas_Fecha" class="java.lang.String"/>
+	<field name="ventas_Total_Venta" class="java.lang.Integer"/>
+	<field name="persona_Nombre" class="java.lang.String"/>
+	<field name="persona_Primer_Apellido" class="java.lang.String"/>
+	<field name="medicamentos_id" class="java.lang.String"/>
+	<field name="medicamentos_NombreComercial" class="java.lang.String"/>
+	<field name="medicamentos_precentacion" class="java.lang.String"/>
+	<field name="medicamentos_Precio_medicamento" class="java.lang.Integer"/>
+	<field name="venta_medicamento_Cantidad" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="86" height="79" uuid="3af3a4cc-f130-48d4-82e4-6502d9bf5262"/>
+				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="86" y="0" width="160" height="32" uuid="ed3d1150-30e3-4743-bcc0-00fffdeb0181"/>
+				<textElement verticalAlignment="Middle">
+					<font size="18"/>
+				</textElement>
+				<text><![CDATA[Farmaser Drogeria]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="86" y="32" width="70" height="20" uuid="3d2fa040-562a-4252-923c-70e188122950"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10"/>
+				</textElement>
+				<text><![CDATA[Factura N°:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="450" y="32" width="105" height="20" forecolor="#FF0000" uuid="09a65ee0-622d-4788-a66a-62445ddbbcd6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_Fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="32" width="79" height="20" forecolor="#FF3333" uuid="df193151-11de-4a40-8ec2-d68b46cfb384"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ventas_id}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="347" y="32" width="96" height="20" uuid="90e8a66e-1d0f-4180-8da4-eb5b8a567a12"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Fecha De Venta:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="57" splitType="Stretch">
+			<textField>
+				<reportElement x="450" y="20" width="105" height="20" uuid="e021d462-20f7-413f-b3f6-a3a7da79c48a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ventas_Total_Venta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="347" y="20" width="90" height="20" uuid="ce95d34d-fb86-45af-9ceb-bef6767057f1"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Total :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="56" y="20" width="44" height="20" uuid="9c19273e-9d0c-459e-b9a5-2718ece900b1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{persona_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="98" y="20" width="100" height="20" uuid="40f402fb-96ef-4d60-b37d-74d7f57aa3c5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{persona_Primer_Apellido}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="52" height="20" uuid="ff274d6d-62c8-4099-ae02-15b6959f75b9"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="100" height="20" uuid="de6130e5-7772-43c2-a88b-810372679cf6"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Codigo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="115" y="1" width="100" height="20" uuid="397afa10-ce2c-429d-87d1-2e391a8dbf4d"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Nombre Generico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="236" y="1" width="100" height="20" uuid="ab11e454-e0a1-44e1-a64f-86703718841b"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Precentacion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="0" width="100" height="20" uuid="8947f207-0ede-4ac2-aa15-476bc9464e3f"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Precio Neto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="0" width="47" height="20" uuid="fe17f456-1ac1-45a7-aae7-279319ff81a7"/>
+				<textElement>
+					<font fontName="Arial Black"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="a1fad89f-387e-4b55-b145-8ecc3b4345d4"/>
+				<textFieldExpression><![CDATA[$F{medicamentos_id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="115" y="0" width="100" height="20" uuid="4a5d29c4-dc5d-4ad2-9a8b-c06e184e389e"/>
+				<textFieldExpression><![CDATA[$F{medicamentos_NombreComercial}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="236" y="0" width="100" height="20" uuid="70c7befa-c1d0-42c7-8c63-b8014b1a1f56"/>
+				<textFieldExpression><![CDATA[$F{medicamentos_precentacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="100" height="20" uuid="4e1e9be2-1c98-4993-84dc-d8172a24d359"/>
+				<textFieldExpression><![CDATA[$F{medicamentos_Precio_medicamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="0" width="47" height="20" uuid="1c693b0d-8867-4d1c-a93e-56ed7e09f0cf"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{venta_medicamento_Cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="63" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
