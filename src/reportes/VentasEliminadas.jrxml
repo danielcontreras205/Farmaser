@@ -55,7 +55,7 @@ WHERE  backupventas.id_Ventas = $P!{Codigo}]]>
 			</textField>
 			<image>
 				<reportElement x="0" y="0" width="86" height="79" uuid="86c602f0-78dc-48e2-8ec5-2e686a278740"/>
-				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+				<imageExpression><![CDATA["D:\\Daniel Contreras\\NetBeansProjects\\NetBeansProjects\\Maven\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="96" y="44" width="70" height="20" uuid="2a6a12d9-2297-45b3-87b9-5f17fe7192ec"/>

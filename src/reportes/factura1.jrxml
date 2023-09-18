@@ -73,7 +73,7 @@ WHERE
 		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="86" height="79" uuid="3af3a4cc-f130-48d4-82e4-6502d9bf5262"/>
-				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+				<imageExpression><![CDATA["D:\\Daniel Contreras\\NetBeansProjects\\NetBeansProjects\\Maven\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="86" y="0" width="160" height="32" uuid="ed3d1150-30e3-4743-bcc0-00fffdeb0181"/>

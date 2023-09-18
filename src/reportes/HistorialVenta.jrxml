@@ -30,7 +30,7 @@ FROM
 		<band height="79" splitType="Stretch">
 			<image>
 				<reportElement x="0" y="0" width="86" height="79" uuid="d19fd90f-6880-46e3-b7bc-0fb1d80d1809"/>
-				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+				<imageExpression><![CDATA["D:\\Daniel Contreras\\NetBeansProjects\\NetBeansProjects\\Maven\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="111" y="20" width="333" height="32" uuid="a4eb12b6-b720-4120-bdfb-55de71194e9e"/>

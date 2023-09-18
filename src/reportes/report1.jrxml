@@ -49,7 +49,7 @@ ventas.`Fecha` BETWEEN '$P!{Fachi_Inicio}' AND '$P!{FechaFinal}']]>
 			</textField>
 			<image>
 				<reportElement x="0" y="0" width="86" height="79" uuid="a659a586-e231-4a6c-8573-8ed8c60f38fc"/>
-				<imageExpression><![CDATA["C:\\Users\\chach\\Documents\\NetBeansProjects\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
+				<imageExpression><![CDATA["D:\\Daniel Contreras\\NetBeansProjects\\NetBeansProjects\\Maven\\Farmaser\\src\\imagenes\\LOGO2.png"]]></imageExpression>
 			</image>
 		</band>
 	</title>
