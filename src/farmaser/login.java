@@ -145,9 +145,8 @@ public class login extends javax.swing.JFrame {
 
                     Session session = Session.getDefaultInstance(props);
 
-                    String CorreoRemitente = "info.services.farmaser@gmail.com";
-                    //String PasswordRemitente = "daniel960117";
-                    String PasswordRemitente = "rjwc usbz gavn tmhu";
+                    String CorreoRemitente = "";
+                    String PasswordRemitente = "";
                     String CorreoReceptor = correo;
 
                     String asunto = "codigo de seguridad";
